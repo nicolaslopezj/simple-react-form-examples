@@ -5,3 +5,14 @@
 Simple React Form is a powerful framework that simplifies the use of forms in React.
 
 This is a Meteor app with examples
+
+## Instructions
+
+```
+git clone https://github.com/nicolaslopezj/simple-react-form-examples
+```
+cd simple-react-form-examples
+meteor
+```
+
+Now go to ```localhost:3000```
