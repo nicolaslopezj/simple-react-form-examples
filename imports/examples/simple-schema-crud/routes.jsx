@@ -2,7 +2,7 @@ import React from 'react'
 import {FlowRouter} from 'meteor/kadira:flow-router'
 import {mount} from 'react-mounter'
 
-import Layout from './layout'
+import Layout from '../../layouts/small'
 import List from './list'
 import Create from './create'
 import Update from './update'

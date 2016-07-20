@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Field} from 'simple-react-form'
 import ArrayComponent from 'simple-react-form-material-ui/lib/fields/array'
 import moment from 'moment'
+import BackHome from '../../home/back-home'
 
 const propTypes = {
 
@@ -29,6 +30,7 @@ export default class Index extends React.Component {
   render () {
     return (
       <div>
+        <BackHome />
         <h1>State example</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
           <Field fieldName='firstName' label='First Name' type='text'/>

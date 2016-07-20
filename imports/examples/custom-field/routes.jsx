@@ -8,7 +8,7 @@ import {mount} from 'react-mounter'
 import './spotify'
 import './country'
 
-import Layout from './layout'
+import Layout from '../../layouts/small'
 import Index from './index'
 
 FlowRouter.route('/custom-field', {

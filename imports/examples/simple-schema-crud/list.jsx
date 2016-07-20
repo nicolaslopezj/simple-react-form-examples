@@ -6,6 +6,7 @@ import {FlowRouter} from 'meteor/kadira:flow-router'
 import {createContainer} from 'meteor/react-meteor-data'
 import {Meteor} from 'meteor/meteor'
 import Posts from './posts'
+import BackHome from '../../home/back-home'
 
 const propTypes = {
   posts: React.PropTypes.array.isRequired,
@@ -38,13 +39,17 @@ class PostsList extends React.Component {
 
   render () {
     return (
-      <Paper>
-        <List>
-          <Subheader>Posts</Subheader>
-          <ListItem primaryText='Create' onTouchTap={this.create}/>
-          {this.renderPosts()}
-        </List>
-      </Paper>
+      <div>
+        <BackHome />
+        <h1>Simple Schema Example</h1>
+        <Paper>
+          <List>
+            <Subheader>Posts</Subheader>
+            <ListItem primaryText='Create' onTouchTap={this.create}/>
+            {this.renderPosts()}
+          </List>
+        </Paper>
+      </div>
     )
   }
 

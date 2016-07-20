@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField'
 import {List, ListItem} from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import Paper from 'material-ui/Paper'
+import RaisedButton from 'material-ui/RaisedButton'
 import _ from 'underscore'
 
 const propTypes = {
@@ -23,6 +24,22 @@ class SpotifySong extends FieldType {
     }
 
     this.debouncedFetch = _.debounce(this.fetch.bind(this), 200)
+    this.playSong = this.playSong.bind(this)
+  }
+
+  playSong () {
+    if (this.state.isPlaying) return this.pauseSong()
+    this.setState({isPlaying: true})
+    this.audio = new Audio(this.props.value.preview_url)
+    this.audio.play()
+    setTimeout(() => {
+      this.setState({isPlaying: false})
+    }, 1000 * 31)
+  }
+
+  pauseSong () {
+    this.audio.pause()
+    this.setState({isPlaying: false})
   }
 
   fetch (query) {
@@ -69,6 +86,24 @@ class SpotifySong extends FieldType {
     )
   }
 
+  renderValue () {
+    if (this.state.tracks.length !== 0 || !this.props.value) return
+
+    const image = this.props.value.album.images[0].url
+    const artistName = this.props.value.artists[0].name
+    return (
+      <div>
+        <img src={image} style={styles.image}/>
+        <h3>
+          {this.props.value.name}
+        </h3>
+        <h4>by {artistName}</h4>
+        <RaisedButton label={this.state.isPlaying ? 'Pause' : 'Preview'} onTouchTap={this.playSong}/>
+        <br style={styles.clear}/>
+      </div>
+    )
+  }
+
   render () {
     return (
       <div>
@@ -77,10 +112,22 @@ class SpotifySong extends FieldType {
         floatingLabelText={this.props.label}
         onChange={(event) => this.debouncedFetch(event.target.value)}/>
         {this.renderTracks()}
+        {this.renderValue()}
       </div>
     )
   }
 
+}
+
+const styles = {
+  image: {
+    float: 'left',
+    maxWidth: 200,
+    marginRight: 20
+  },
+  clear: {
+    clear: 'both'
+  }
 }
 
 SpotifySong.propTypes = propTypes

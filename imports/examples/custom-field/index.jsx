@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form, Field} from 'simple-react-form'
+import BackHome from '../../home/back-home'
 
 const propTypes = {
 
@@ -19,6 +20,7 @@ export default class Index extends React.Component {
   render () {
     return (
       <div>
+        <BackHome/>
         <h1>Custom field example</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
           <Field fieldName='country' label='Select a country' type='country'/>
