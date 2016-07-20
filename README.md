@@ -8,8 +8,14 @@ This is a Meteor app with examples
 
 ## Instructions
 
+Download the code
+
 ```
 git clone https://github.com/nicolaslopezj/simple-react-form-examples
+```
+
+Run the app
+
 ```
 cd simple-react-form-examples
 meteor
