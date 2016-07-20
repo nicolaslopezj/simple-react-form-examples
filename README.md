@@ -14,6 +14,12 @@ Download the code
 git clone https://github.com/nicolaslopezj/simple-react-form-examples
 ```
 
+Install dependencies
+
+```
+npm install
+```
+
 Run the app
 
 ```
