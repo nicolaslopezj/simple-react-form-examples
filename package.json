@@ -13,13 +13,15 @@
     "components": "^0.1.0",
     "material-ui": "^0.15.2",
     "meteor-node-stubs": "^0.2.3",
+    "moment": "^2.14.1",
     "react": "^15.2.1",
     "react-addons-pure-render-mixin": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-mounter": "^1.2.0",
     "react-tap-event-plugin": "^1.0.0",
     "simple-react-form": "^1.3.0",
-    "simple-react-form-material-ui": "^1.3.2"
+    "simple-react-form-material-ui": "^1.3.2",
+    "underscore": "^1.8.3"
   },
   "version": "1.0.0",
   "main": "index.js",

@@ -1,4 +1,5 @@
 import {Meteor} from 'meteor/meteor'
+import moment from 'moment'
 
 const Posts = new Meteor.Collection('posts')
 
@@ -16,7 +17,8 @@ Posts.attachSchema({
   date: {
     type: Date,
     srf: {
-      type: 'date-picker'
+      type: 'date-picker',
+      formatDate: (date) => moment(date).format('LL')
     }
   }
 })

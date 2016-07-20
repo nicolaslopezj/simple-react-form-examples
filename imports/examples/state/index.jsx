@@ -1,6 +1,7 @@
 import React from 'react'
 import {Form, Field} from 'simple-react-form'
 import ArrayComponent from 'simple-react-form-material-ui/lib/fields/array'
+import moment from 'moment'
 
 const propTypes = {
 
@@ -32,13 +33,12 @@ export default class Index extends React.Component {
         <Form state={this.state} onChange={changes => this.setState(changes)}>
           <Field fieldName='firstName' label='First Name' type='text'/>
           <Field fieldName='lastName' label='Last Name' type='text'/>
-          <Field fieldName='birthday' label='Birthday' type='date-picker'/>
+          <Field fieldName='birthday' label='Birthday' type='date-picker' formatDate={(date) => moment(date).format('LL')}/>
           <Field fieldName='bio' label='Bio' type='textarea' rows={3}/>
           <Field fieldName='musicTastes' label='Music Tastes' type='multiple-checkbox' options={this.getMusicTastesOptions()}/>
           <ArrayComponent fieldName='friends' label='Friends' addLabel='Add' removeLabel='Remove'>
             <Field fieldName='firstName' label='First Name' type='text'/>
             <Field fieldName='lastName' label='Last Name' type='text'/>
-            <Field fieldName='birthday' label='Birthday' type='date-picker'/>
             <br/>
             <Field fieldName='isBestFriend' label='Is Best Friend' type='toggle'/>
             <br/>
