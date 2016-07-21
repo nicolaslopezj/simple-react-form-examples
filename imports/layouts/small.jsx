@@ -27,6 +27,7 @@ export default class Layout extends React.Component {
 const styles = {
   container: {
     paddingTop: 60,
+    paddingBottom: 60,
     maxWidth: 600,
     margin: '0 auto 0 auto'
   }
