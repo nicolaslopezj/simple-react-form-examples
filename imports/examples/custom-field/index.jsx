@@ -1,5 +1,7 @@
 import React from 'react'
 import {Form, Field} from 'simple-react-form'
+import SpotifySong from './spotify'
+import Country from './country'
 import BackHome from '../../home/back-home'
 
 const propTypes = {
@@ -23,8 +25,8 @@ export default class Index extends React.Component {
         <BackHome/>
         <h1>Custom field example</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
-          <Field fieldName='country' label='Select a country' type='country'/>
-          <Field fieldName='selectedSong' label='Search a song' type='spotify-song'/>
+          <Field fieldName='country' label='Select a country' type={Country}/>
+          <Field fieldName='selectedSong' label='Search a song' type={SpotifySong}/>
         </Form>
         <br/>
         <p>

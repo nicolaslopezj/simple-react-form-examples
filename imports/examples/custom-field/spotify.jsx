@@ -1,5 +1,5 @@
 import React from 'react'
-import {FieldType, registerType} from 'simple-react-form'
+import {FieldType} from 'simple-react-form'
 import TextField from 'material-ui/TextField'
 import {List, ListItem} from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
@@ -15,7 +15,7 @@ const defaultProps = {
   ...FieldType.defaultProps
 }
 
-class SpotifySong extends FieldType {
+export default class SpotifySong extends FieldType {
 
   constructor (props) {
     super(props)
@@ -132,8 +132,3 @@ const styles = {
 
 SpotifySong.propTypes = propTypes
 SpotifySong.defaultProps = defaultProps
-
-registerType({
-  type: 'spotify-song',
-  component: SpotifySong
-})

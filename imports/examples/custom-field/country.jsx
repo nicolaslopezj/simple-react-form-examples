@@ -1,5 +1,5 @@
 import React from 'react'
-import {FieldType, registerType} from 'simple-react-form'
+import {FieldType} from 'simple-react-form'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 
@@ -13,7 +13,7 @@ const defaultProps = {
   ...FieldType.defaultProps
 }
 
-class Country extends FieldType {
+export default class Country extends FieldType {
 
   constructor (props) {
     super(props)
@@ -45,8 +45,3 @@ class Country extends FieldType {
 
 Country.propTypes = propTypes
 Country.defaultProps = defaultProps
-
-registerType({
-  type: 'country',
-  component: Country
-})
