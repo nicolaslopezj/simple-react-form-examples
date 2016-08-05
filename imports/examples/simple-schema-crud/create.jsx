@@ -1,7 +1,7 @@
 import React from 'react'
 import {Form} from 'simple-react-form'
 import RaisedButton from 'material-ui/RaisedButton'
-import ArrayComponent from 'simple-react-form-material-ui/lib/array'
+// import ArrayComponent from 'simple-react-form-material-ui/lib/array'
 import {FlowRouter} from 'meteor/kadira:flow-router'
 
 import Posts from './posts'
@@ -15,7 +15,6 @@ export default class PostsCreate extends React.Component {
         collection={Posts}
         type='insert'
         ref='form'
-        arrayComponent={ArrayComponent}
         logErrors
         onSuccess={(docId) => FlowRouter.go('simpleSchemaCrud.index')}/>
         <br/>

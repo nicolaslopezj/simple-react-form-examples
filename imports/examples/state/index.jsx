@@ -43,13 +43,11 @@ export default class Index extends React.Component {
           <Field fieldName='birthday' label='Birthday' type={DatePicker} formatDate={(date) => moment(date).format('LL')}/>
           <Field fieldName='bio' label='Bio' type={Textarea} rows={3}/>
           <Field fieldName='musicTastes' label='Music Tastes' type={MultipleCheckbox} options={this.getMusicTastesOptions()}/>
-          <ArrayComponent fieldName='friends' label='Friends' addLabel='Add' removeLabel='Remove'>
+          <Field fieldName='friends' label='Friends' type={ArrayComponent}>
             <Field fieldName='firstName' label='First Name' type='text'/>
             <Field fieldName='lastName' label='Last Name' type='text'/>
-            <br/>
-            <Field fieldName='isBestFriend' label='Is Best Friend' type={Toggle}/>
-            <br/>
-          </ArrayComponent>
+            <Field fieldName='isBestFriend' label='Is Best Friend' type={Toggle} style={{marginTop: 10, marginBottom: 10}}/>
+          </Field>
         </Form>
         <br/>
         <p>

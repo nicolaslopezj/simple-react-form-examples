@@ -13,6 +13,19 @@ const propTypes = {
 
 class PostsUpdate extends React.Component {
 
+  constructor (props) {
+    super(props)
+    this.state = {}
+    this.showSuccessMessage = this.showSuccessMessage.bind(this)
+  }
+
+  showSuccessMessage () {
+    this.setState({successMessage: 'Post saved'})
+    setTimeout(() => {
+      this.setState({successMessage: null})
+    }, 1000)
+  }
+
   render () {
     return (
       <div>
@@ -21,14 +34,28 @@ class PostsUpdate extends React.Component {
         collection={Posts}
         type='update'
         ref='form'
-        doc={this.props.post}>
+        doc={this.props.post}
+        onSuccess={this.showSuccessMessage}>
           <Field fieldName='title'/>
           <Field fieldName='body'/>
           <Field fieldName='date'/>
+          <Field fieldName='authors'>
+            <Field fieldName='name'/>
+            <Field fieldName='age'/>
+          </Field>
+          <Field fieldName='editor'>
+            <Field fieldName='name'/>
+            <Field fieldName='age'/>
+          </Field>
         </Form>
         <br/>
-        <RaisedButton label='Back' onTouchTap={() => FlowRouter.go('simpleSchemaCrud.index')}/>
-        <RaisedButton primary label='Save' onTouchTap={() => this.refs.form.submit()}/>
+        <div>
+          <RaisedButton label='Back' onTouchTap={() => FlowRouter.go('simpleSchemaCrud.index')}/>
+          <RaisedButton primary label='Save' onTouchTap={() => this.refs.form.submit()}/>
+        </div>
+        <p>
+          {this.state.successMessage}
+        </p>
       </div>
     )
   }
